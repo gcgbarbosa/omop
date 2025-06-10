@@ -1,10 +1,6 @@
 # Use postgres/example user/password credentials
 version: "3.9"
 
-networks:
-  omop_network:
-    driver: bridge
-
 services:
   db:
     image: postgres
@@ -23,14 +19,4 @@ services:
       POSTGRES_DB: omopdb
     ports:
       - 5432:5432 
-    networks:
-      - omop_network
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - omop_network
 
